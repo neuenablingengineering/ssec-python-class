@@ -44,63 +44,18 @@ pygame.display.flip()
 #initialize the game clock
 clock = pygame.time.Clock()
 
-
-
-
-
-
-
-'''
-CHALLENGES:
-    - Write a function that makes mathMessage = 17.5 with inputs 1.0 and 2.0
-    - Write a function that makes mathmessage = 1000 with inputs -10.0 and 17.0
-    - Write a function that changes the stringMessage!
-    - Make more challenges and share them with us!
-'''
-
-#here's a simple example of a function that adds two given numbers
-def add(number1, number2):
-    return number1 + number2
-
-def sub(number1, number2):
-    return number1 - number2
-
-def mult(number1, number2):
-    return number1 * number2
-
-def mod(number1, number2):
-    return number1 % number2
-
-nicelist = ["hi", "bye", "asdf"]
-nicelist[0] = "fdadsfasdfa"
-nicelist[2]
-nicelist.append("heyyyyyyyyyyyyyyyyyyyy")
-nicelist.insert(0, "heyyyyyyyyyyyyyyyyyyyy")
-
-
 #initialize default value for stringMessage
-stringMessage = "I'm pretty cool"
+stringMessage = "SSEC is awesome!"
 
-#initialize default mathMessage -- play around with these inputs!
-mathMessage = str(mod(5, 2))
+#initialize default values for firstNumber and secondNumber
+firstNumber = 1.0
+secondNumber = 5.0
 
-
-
-
-
-
-
-
-'''
-No need to change the code below here (but you can if you want to play around with colors!)
-Can you figure out how?
-'''
+#initialize default mathMessage
+mathMessage = str(firstNumber * secondNumber)
 
 #clock loop -- keep running the game
 while 1:
-    #keep cursor visible
-    pygame.mouse.set_visible(True)
-    #clock tick
     clock.tick(30)
 
     # declare and print text to the screen
@@ -119,7 +74,44 @@ while 1:
     pygame.display.flip()
 
 
+
+    '''
+    Have fun playing around with this code!
+    '''
+
+
+
+    ##############################
+    decider = input("Type S to change the String, type T to change the number, \
+        type B to change both, or type Q to quit: ")
+    if decider == "S":
+        stringMessage = input("What string do you want to display? ")
+    elif decider == "T":
+        firstNumber = float(input("First number? "))
+        secondNumber = float(input("Second number? "))
+    elif decider == "B":
+        stringMessage = input("What string do you want to display? ")
+        firstNumber = float(input("First number? "))
+        secondNumber = float(input("Second number? "))
+    elif decider == "Q":
+        sys.exit()
+    else:
+        print("\n" + "Oh no -- your input isn't quite right! Restart the program and try again :) ")
+        break
+    #####################################
+
+    # Change this to try different math operations!
+    mathMessage = str(round(firstNumber * secondNumber, 3))
+
+
+
+    '''
+    No need to change the code below here
+    '''
+
+
     #handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            break
             sys.exit()
